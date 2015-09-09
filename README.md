@@ -1,32 +1,37 @@
 laravel-forms
 =============
 
-Extends the Laravel FormBuilder object (Form:: facade) to automatically output form fields with Foundation- or Bootstrap-specific wrapping markup around them.
+Extends the `laravelcollective/html` FormBuilder object (Form:: facade) to automatically output form fields with Foundation- or Bootstrap-specific wrapping markup around them.
 
-For example, with `foundationBasicGrid` selected, the following call:
+Example
+=======
+
+With `foundationBasicGrid` selected, the following call:
 
     {{ Form::text('name',null,['errors'=>$errors]) }}
 
 Will output:
 
     <div class="row">
-        <div class="form-group col-md-6 col-md-offset-3">
-            <label for="name">Name</label>
-            <input id="name" placeholder="Name" maxlength="150"
-                class="form-control" name="name" type="text"
-                value="Parent Organization">
+        <div class="medium-12 columns">
+            <label for="name">
+            	Name
+                <input id="name" placeholder="Name" maxlength="150"
+                    name="name" type="text" value="Parent Organization">
+            </label>
         </div>
     </div>
 
 If there is a validation error on the field, it will output:
 
-	<div class="row">
-		<div class="form-group col-md-6 col-md-offset-3 has-error">
-            <label for="name">Name</label>
-            <input id="name" placeholder="Name" maxlength="150"
-            	class="form-control" name="name" type="text"
-            	value="">
-            <span class="help-block">The name field is required.</small>
+    <div class="row">
+        <div class="medium-12 columns">
+            <label for="name">
+            	Name
+                <input id="name" placeholder="Name" maxlength="150"
+                    name="name" type="text" value="Parent Organization">
+                <small class="error">The img field is required.</small>
+            </label>            
         </div>
     </div>
 
@@ -36,9 +41,9 @@ Installation
 ============
 
 1. Require `"npmweb/laravel-forms": "~1.0"` in your `composer.json` file.
-2. Run `composer install` or `composer update` to download it and have the autoloader updated.
+2. Run `composer install` or `composer update` to download it and have the autoloader updated.3. 
 3. Open `app/config/app.php` and make the following changes under the `providers` key:
-	a. Comment out `'Illuminate\Html\HtmlServiceProvider'`
+	a. If `'Collective\Html\HtmlServiceProvider'` is there, comment it out
 	b. Add `'NpmWeb\FormBuilder\HtmlServiceProvider'`
 
 Configuration
