@@ -40,7 +40,7 @@ You can easily change the grid column classes, and if you use `bootstrapBasicGri
 Installation
 ============
 
-1. Require `"npmweb/laravel-forms": "~1.0"` in your `composer.json` file.
+1. Require `"npmweb/laravel-forms": "^2.0"` in your `composer.json` file.
 2. Run `composer install` or `composer update` to download it and have the autoloader updated.3. 
 3. Open `app/config/app.php` and make the following changes under the `providers` key:
 	a. If `'Collective\Html\HtmlServiceProvider'` is there, comment it out
@@ -51,7 +51,7 @@ Configuration
 
 You will probably want to change the default configuration. First, publish the package config file:
 
-    $ php artisan config:publish npmweb/laravel-forms
+    $ php artisan vendor:publish --provider="NpmWeb\FormBuilder\HtmlServiceProvider"
     
 The following options are available:
 
