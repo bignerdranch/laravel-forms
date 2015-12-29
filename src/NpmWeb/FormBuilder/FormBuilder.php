@@ -382,7 +382,9 @@ class FormBuilder
             : [];
 
         if (!array_key_exists('id', $config->extras) ) $config->extras['id'] = e( $name );
-        if (!array_key_exists('placeholder',$config->extras) ) $config->extras['placeholder'] = $config->label; // configurable?
+        if ($this->auto_placeholders && !array_key_exists('placeholder',$config->extras) ) {
+            $config->extras['placeholder'] = $config->label;
+        }
 
 
         $config->errors = array_key_exists('errors',$options)
