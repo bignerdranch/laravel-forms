@@ -14,6 +14,7 @@ class FormBuilder
     private $default_col_width = 'large-6';
     private $default_row_per_field = false;
     private $default_css_framework = 'foundation';
+    private $auto_placeholders = true;
 
     public function __construct(
         \Collective\Html\HtmlBuilder $html,
@@ -27,6 +28,7 @@ class FormBuilder
         $this->default_col_width = Config::get('forms.col_width');
         $this->default_row_per_field = Config::get('forms.row_per_field');
         $this->default_css_framework = Config::get('forms.css_framework');
+        $this->auto_placeholders = Config::get('forms.auto_placeholders');
     }
 
     /**
